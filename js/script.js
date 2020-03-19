@@ -1,5 +1,5 @@
 var mazeBoard = []; // A variable to hold a matrix representation of the game board.
-boardSize = 5;
+boardSize = 10;
 const direction = {
     UP: Number(0),
     LEFT: Number(1),
