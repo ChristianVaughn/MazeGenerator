@@ -1,5 +1,6 @@
 var mazeBoard = []; // A variable to hold a matrix representation of the game board.
 boardSize = 10;
+boardWidth= 15;
 const direction = {
     UP: Number(0),
     LEFT: Number(1),
@@ -30,7 +31,7 @@ function shuffle(a) {
     return a;
 }
 function inBounds(x, y) {
-    if ((x < 0 || x >= boardSize)) {
+    if ((x < 0 || x >= boardWidth)) {
         return false;
     }
     if (y < 0 || y >= boardSize) {
@@ -77,11 +78,11 @@ function draw() {
 
 //A function that takes the empty mazeBoard matrix defined in global and initializes it with starting board value based on passed in size.
 function initBoardArray() {
-    for (let i = 0; i < boardSize; i++) {
+    for (let i = 0; i < boardWidth; i++) {
         mazeBoard[i] = [];
     }
     for (let i = 0; i < boardSize; i++) {
-        for (let j = 0; j < boardSize; j++) {
+        for (let j = 0; j < boardWidth; j++) {
             var temp = new MazeTile(j, i);
             mazeBoard[j][i] = temp;  // ReferenceError
         }
@@ -92,8 +93,8 @@ function initBoardArray() {
 }
 function initMaze() {
     var c = [];
-    var x = Math.floor(Math.random() * mazeBoard.length);     // returns a random integer from 0 to 9
-    var y = Math.floor(Math.random() * mazeBoard.length); // random y pos
+    var x = Math.floor(Math.random() * boardWidth);     // returns a random integer from 0 to 9
+    var y = Math.floor(Math.random() * boardSize); // random y pos
 
     c.push(mazeBoard[x][y]);
     mazeBoard[x][y].visited = true;
